@@ -3,7 +3,7 @@ let array2 = [1,2,4,4];
 
 // Using brute force approach
 
-const findMatchingPairsThatAddUpToSum = (array,sum) => {
+const findMatchingPairsThatAddUpToSum = (array,sum) => { // Onˆ2 or quadratic time
     for(let i = 0; i < array.length; i++) {
         for(let j = i + 1; j < array.length; j++){
             if(array[i] + array[j] == sum){
