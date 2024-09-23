@@ -1,14 +1,25 @@
-/*
-    Given 2 arrays, create a function that lets a user know (true/false) whether these two arrays contain any common items
+// Notes:
+// The arrays aren't sorted
+// The input is two arrays there is a logic to scan them and see if there is any common elements and the result should return true or false
+// The return means logging true or false or return a boolean value?
+// They will always be of different sizes?
 
-    For example:
+const array1 = ["a", "b", "c", "x"];
+const array2 = ["z", "y", "i"];
 
-    const array1 = ["a","b","c","x"];
-    const array2 = ["z","y","i"];
-    They should return false
+const arrayA = ["a", "b", "c", "x"];
+const arrayB = ["z", "y", "x"];
 
 
-    const array1 = ["a","b","c","x"];
-    const array2 = ["z","y","x"];
-    should return true (because of x)
-*/
+//Bruteforce approach
+const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic
+    for (let i = 0; i < arrayA.length; i++) {
+        for (let j = 0; j < arrayB.length; j++) {
+            if (arrayA[i] == arrayB[j]) {
+                console.log(true);
+            }
+        }
+    }
+};
+
+checkArraysIfThereIsCommonElement(arrayA,arrayB);
