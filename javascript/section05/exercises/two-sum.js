@@ -6,13 +6,13 @@ const hasPairWithSumBruteForce = (array,sum) => { // Onˆ2 or quadratic time
     for(let i = 0; i < array.length; i++) {
         for(let j = i + 1; j < array.length; j++){
             if(array[i] + array[j] == sum){
-                console.log('it add up');
+                return [i,j];
             }
         }
     }
 }
 
-const hasPairWithSum = (data, target) => { //O(n) or linear
+const hasPairWithSumWithSortedArray = (data, target) => { //O(n) or linear
     let low = 0;
     let high = data.length - 1;
     while (low < high) {
@@ -39,4 +39,24 @@ const hasPairWithSum = (data, target) => { //O(n) or linear
     - If the sum is greater than the target it moves the high pointer one step before (it decreases the high pointer -1 high--)
 */
 
-console.log(hasPairWithSum(array2,8))
+const hasPairWithSumWithUnSortedArray = (data, target) => {
+    const comp = new Map();
+
+    for (let i = 0; i < data.length; i++) {
+        let value = data[i];
+        let complement = target - value;
+
+        // Checking if the complement exists in the map
+        if (comp.has(complement)) {
+            // Return the indices of the pair
+            return [comp.get(complement), i];
+        }
+
+        // Add the current value and its index to the map
+        comp.set(value, i);
+    }
+
+    return false;
+};
+
+console.log(hasPairWithSumWithSortedArray(array2,8));
