@@ -19,21 +19,19 @@ let tweetsWithDate = [{
 }];
 
 const retrieveOldestAndNewestTweetWithDateComparison = (array) => { 
-    let newestDate = array[0].date; 
+    let newestDate = array[array.length - 1].date; 
     let oldestDate = array[0].date; 
     array.forEach(item => { 
-        if(item.date > newestDate){
-            console.log('newestDate: ', newestDate, ' item: ',item.date);
+        if(item.date >= newestDate){
             newestDate = item.date;
-            console.log('newestDate => ', newestDate);
         }
 
         if(item.date < oldestDate){
-            console.log('oldestDate: ', oldestDate, ' item: ',item.date);
             oldestDate = item.date;
-            console.log('oldestDate => ', oldestDate);
         }
+
     });
+    console.log('oldest date', oldestDate, ' newest date: ', newestDate);
 }
 
 retrieveOldestAndNewestTweetWithDateComparison(tweetsWithDate);// time complexity = O(n) and space complexity = O(1)
