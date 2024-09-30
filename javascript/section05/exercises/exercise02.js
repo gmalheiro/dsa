@@ -10,7 +10,6 @@ const array2 = ["z", "y", "i"];
 const arrayA = ["a", "b", "c", "x"];
 const arrayB = ["z", "y", "x"];
 
-
 //Bruteforce approach
 const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic
     for (let i = 0; i < arrayA.length; i++) {
@@ -20,6 +19,25 @@ const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quad
             }
         }
     }
-};
+};    
 
+
+const checkCommonItensInArrayNplusMSolution = (arrayA,arrayB) => { // O(n + m)
+    let set = new Set();
+
+    for (let i = 0; i < arrayA.length; i++) {
+        set.add(arrayA[i]);
+    }
+
+    for (let i = 0; i < arrayB.length; i++){
+        if (set.has(arrayB[i])) {
+            console.log("It has");
+            return true;
+        } 
+    }
+
+    console.log('IT DOES NOT HAVE');
+    return false;
+
+};
 checkArraysIfThereIsCommonElement(arrayA,arrayB);
