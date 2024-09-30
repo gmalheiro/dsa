@@ -43,4 +43,8 @@ const checkCommonItensInArrayNplusMSolution = (arrayA,arrayB) => { // O(n + m)
     return false;
 
 };
-checkArraysIfThereIsCommonElement(arrayA,arrayB);
+
+/*
+    One of the most common patterns when it comes to nested for loops 
+    is that you might be able to use hash tables in javascript they are called objects 
+*/
