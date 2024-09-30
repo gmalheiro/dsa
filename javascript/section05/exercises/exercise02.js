@@ -11,14 +11,17 @@ const arrayA = ["a", "b", "c", "x"];
 const arrayB = ["z", "y", "x"];
 
 //Bruteforce approach
-const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic
+const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic if the arrays are the same size
+    //If the inputs sizes are different they look more like o(n * m)
     for (let i = 0; i < arrayA.length; i++) {
         for (let j = 0; j < arrayB.length; j++) {
             if (arrayA[i] == arrayB[j]) {
                 console.log(true);
+                return true;
             }
         }
     }
+    return false;
 };    
 
 
@@ -40,4 +43,8 @@ const checkCommonItensInArrayNplusMSolution = (arrayA,arrayB) => { // O(n + m)
     return false;
 
 };
-checkArraysIfThereIsCommonElement(arrayA,arrayB);
+
+/*
+    One of the most common patterns when it comes to nested for loops 
+    is that you might be able to use hash tables in javascript they are called objects 
+*/
