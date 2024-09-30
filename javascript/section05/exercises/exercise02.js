@@ -16,9 +16,11 @@ const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quad
         for (let j = 0; j < arrayB.length; j++) {
             if (arrayA[i] == arrayB[j]) {
                 console.log(true);
+                return true;
             }
         }
     }
+    return false;
 };    
 
 
