@@ -11,7 +11,8 @@ const arrayA = ["a", "b", "c", "x"];
 const arrayB = ["z", "y", "x"];
 
 //Bruteforce approach
-const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic
+const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic if the arrays are the same size
+    //If the inputs sizes are different they look more like o(n * m)
     for (let i = 0; i < arrayA.length; i++) {
         for (let j = 0; j < arrayB.length; j++) {
             if (arrayA[i] == arrayB[j]) {
