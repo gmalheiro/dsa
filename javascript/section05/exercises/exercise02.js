@@ -22,21 +22,21 @@ const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quad
         }
     }
     return false;
-};    
+};
 
 
-const checkCommonItensInArrayNplusMSolution = (arrayA,arrayB) => { // O(n + m)
+const checkCommonItensInArrayNplusMSolution = (arrayA, arrayB) => { // O(n + m)
     let set = new Set();
 
     for (let i = 0; i < arrayA.length; i++) {
         set.add(arrayA[i]);
     }
 
-    for (let i = 0; i < arrayB.length; i++){
+    for (let i = 0; i < arrayB.length; i++) {
         if (set.has(arrayB[i])) {
             console.log("It has");
             return true;
-        } 
+        }
     }
 
     console.log('IT DOES NOT HAVE');
@@ -48,3 +48,23 @@ const checkCommonItensInArrayNplusMSolution = (arrayA,arrayB) => { // O(n + m)
     One of the most common patterns when it comes to nested for loops 
     is that you might be able to use hash tables in javascript they are called objects 
 */
+
+const neagoieSolution = (array1, array2) => {
+    let map = {};
+    for (let i = 0; i < array1.length; i++) {
+        if (!map[array1[i]]) {
+            const item = array1[i];
+            map[item] = true;
+        }
+    }
+
+    //Loop through the second array and check if item in second array exists on created object
+    for (let j = 0; j < array2.length; j++) {
+        if (map[array2[j]]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(neagoieSolution(arrayA,arrayB));
