@@ -10,6 +10,31 @@ const array2 = ["z", "y", "i"];
 const arrayA = ["a", "b", "c", "x"];
 const arrayB = ["z", "y", "x"];
 
+//Always think of different inputs
+
+//What if we had two same letters in the same array? Q1
+const arrayC = ["a", "a", "c", "x"];
+const arrayD = ["z", "y", "x"];
+
+//What if we had same letters in array and an equal letter in the other array? Q2
+const arrayE = ["a", "a", "c", "x"];
+const arrayF = ["z", "a", "x"];
+
+//What if we had numbers? Q3
+const arrayG = ["a", 1, "c", "x"];
+const arrayH = ["z", 1, "x"];
+
+//What if we had arrays as elements in the arrays? Q4
+const arrayI = ["a", [], "c", "x"];
+const arrayJ = ["z", [], "x"];
+
+//What if we had null as elements in the array? Q5
+const arrayK = ["a", null, "c", "x"];
+const arrayL = ["z", null, "x"];
+
+/* What if we didn't receive a second array? What would happen to the function? Q6 */
+const arrayM = ["a", "b", "c", "x"];
+
 //Bruteforce approach
 const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quadratic if the arrays are the same size
     //If the inputs sizes are different they look more like o(n * m)
@@ -24,7 +49,26 @@ const checkArraysIfThereIsCommonElement = (arrayA, arrayB) => { // O(n^2) = quad
     return false;
 };
 
+//Always make the solution error free as possible
 
+/*
+Ask questions like: can we assume always two params?
+I'll always be receiving the same data type as parameters?
+
+Ex: func (array1:string[], array2:number[]) or (array1:string[], array2:number)
+
+Make suggestions on how to improve it like doing  checks and etc...
+
+
+Tell the interviewer about the weakpoints in your method like:
+
+    in this function only numbers, strings and booleans can be used correctly here
+
+    If we used non literal values this might not work like a javascript expression
+
+    And also this code could be a little bit more readable
+
+*/
 const checkCommonItensInArrayNplusMSolution = (arrayA, arrayB) => { // O(n + m)
     let set = new Set();
 
