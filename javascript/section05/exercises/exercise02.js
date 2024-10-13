@@ -39,7 +39,6 @@ const checkCommonItensInArrayNplusMSolution = (arrayA, arrayB) => { // O(n + m)
         }
     }
 
-    console.log('IT DOES NOT HAVE');
     return false;
 
 };
@@ -49,15 +48,18 @@ const checkCommonItensInArrayNplusMSolution = (arrayA, arrayB) => { // O(n + m)
     is that you might be able to use hash tables in javascript they are called objects 
 */
 
-const neagoieSolution = (array1, array2) => {
-    let map = {};
-    for (let i = 0; i < array1.length; i++) {
-        if (!map[array1[i]]) {
-            const item = array1[i];
-            map[item] = true;
-        }
-    }
+//Always modularize your code breaking it into smaller functions
+const mapArrayToObject = (array) => {
+    let object = {};
+    array.forEach(item => {
+        if (!object[item]) 
+            object[item] = true;
+    });
+    return object;
+}
 
+const neagoieSolution = (array1, array2) => {
+    let map = mapArrayToObject(array1);
     //Loop through the second array and check if item in second array exists on created object
     for (let j = 0; j < array2.length; j++) {
         if (map[array2[j]]) {
@@ -66,5 +68,28 @@ const neagoieSolution = (array1, array2) => {
     }
     return false;
 }
+
+
+const neagoieCleanerSolution = (array1,array2) => {
+    return array1.some(item => array2.includes(item));
+}
+/*
+    In this solution we used built-in methods in javascript having a nicer solution
+*/
+
+/*
+
+    Q1 - It wouldn't add the a a second time because were checking it and it would return true because of x 
+
+    Q3  & Q5 - This is a language specific question but the answer in javascript is yes because it would treat them as literals
+    
+    Q4 - In JavaScript, comparing arrays or objects checks reference equality (not value equality),
+    so it would treat `[]` as unique, even if both arrays contain empty arrays. In `["a", [], "c", "x"]` and `["z", [], "x"]`,
+    it would return `true` because of "x", but the empty arrays would not be considered equal.
+
+    Q6 
+    The function would break because there's nothing to iterate over
+
+*/
 
 console.log(neagoieSolution(arrayA,arrayB));
